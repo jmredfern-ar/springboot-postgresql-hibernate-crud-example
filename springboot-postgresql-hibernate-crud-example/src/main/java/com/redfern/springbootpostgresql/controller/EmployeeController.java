@@ -27,14 +27,19 @@ import com.redfern.springbootpostgresql.repository.EmployeeRepository;
 @RequestMapping("/api/v1")
 public class EmployeeController {
 	
+	private final EmployeeRepository employeeRepository;
+	
 	@Autowired
-	private EmployeeRepository employeeRepository;
+	public EmployeeController(EmployeeRepository employeeRepository) {
+		this.employeeRepository = employeeRepository;
+	}
 	
 	//get employees
-	@GetMapping("employees")
+	@GetMapping("employees") // need forward slash here?
 	public List<Employee> getAllEmployee() {
 		return this.employeeRepository.findAll();
 	}
+	
 	//get employees by id
 	@GetMapping("/employees/{id}")
 	public ResponseEntity<Employee> getEmployeeById(@PathVariable(value ="id") Long employeeId)

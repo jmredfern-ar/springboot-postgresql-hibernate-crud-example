@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -25,6 +27,9 @@ public class Employee {
 	
 	@Column(name="email")
 	private String email;
+	
+	@ManyToOne
+	private AddressTest addressTest;
 	
 	//CONSTRUCTORS
 	public Employee(String firstName, String lastName, String email) {
