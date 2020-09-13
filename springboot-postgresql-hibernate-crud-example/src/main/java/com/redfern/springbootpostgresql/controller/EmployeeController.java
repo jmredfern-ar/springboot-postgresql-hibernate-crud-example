@@ -8,6 +8,8 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -34,8 +36,7 @@ public class EmployeeController {
 		this.employeeRepository = employeeRepository;
 	}
 	
-	//get employees
-	@GetMapping("employees") // need forward slash here?
+	@GetMapping("/employees") // need forward slash here?
 	public List<Employee> getAllEmployee() {
 		return this.employeeRepository.findAll();
 	}
